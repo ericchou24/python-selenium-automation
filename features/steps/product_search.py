@@ -31,11 +31,12 @@ def click_search_icon(context):
 @then('Product results for {search_word} are shown')
 def verify_found_results_text(context, search_word):
     results_msg = context.driver.find_element(*RESULTS_FOUND_MESSAGE).text
-    assert search_word in results_msg, "Expected word '{}' in message, but got '{}'".format(search_word, results_msg)
+    print("This is results: " + results_msg)
+    assert search_word in results_msg, "Expected word 1'{}' in message, but got '{}'".format(search_word, results_msg)
 
 
 @then('First result contains {search_word}')
 def verify_first_result(context, search_word):
     first_result = context.driver.find_element(*RESULTS).text
     print('\n{}'.format(first_result))
-    assert search_word in first_result, "Expected word '{}' in message, but got '{}'".format(search_word, first_result)
+    assert search_word in first_result, "Expected word 2'{}' in message, but got '{}'".format(search_word, first_result)

@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 # init driver
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(executable_path=r'C:\Users\ericc\Desktop\JobEasy_Git_GitHub\python-selenium-automation\chromedriver.exe')
 driver.maximize_window()
 
 # open the url
@@ -11,7 +11,7 @@ driver.get('https://www.google.com/')
 
 search = driver.find_element(By.NAME, 'q')
 search.clear()
-search.send_keys('Dress')
+search.send_keys('Fruit')
 
 # wait for 4 sec
 sleep(4)
@@ -20,7 +20,7 @@ sleep(4)
 driver.find_element(By.NAME, 'btnK').click()
 
 # verify
-assert 'Dress' in driver.find_element(By.XPATH, "//div[contains(@class,'commercial-unit-desktop-top')]").text
-assert 'Dress' in driver.find_element(By.XPATH, "//div[@class='g']").text
+assert 'Fruit' in driver.find_element(By.XPATH, "//div[contains(@class,'commercial-unit-desktop-top')]").text
+assert 'Fruit' in driver.find_element(By.XPATH, "//div[@class='g']").text
 
 driver.quit()

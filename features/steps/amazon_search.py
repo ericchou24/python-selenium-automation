@@ -8,7 +8,7 @@ def open_google(context):
 
 @when('Input Watches into Amazon search field')
 def input_search(context):
-    search = search = context.driver.find_element(By.ID, 'twotabsearchtextbox')
+    search = context.driver.find_element(By.ID, 'twotabsearchtextbox')
     search.send_keys('Watches')
 
 

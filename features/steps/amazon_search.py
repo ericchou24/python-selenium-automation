@@ -25,4 +25,4 @@ def verify_found_results_text(context):
     print("This is results: " + returned_text)
     expected_text = '"Watches"'
 
-    assert expected_text == returned_text, f'Expected {expected_text}, but got {returned_text} instead'.format()
+    assert expected_text == returned_text, f'Expected {expected_text}, but got {returned_text} instead'

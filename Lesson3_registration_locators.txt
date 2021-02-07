@@ -1,0 +1,12 @@
+Amazon logo, CSS Selector, ("i[class='a-icon a-icon-logo'])
+Create Account, CSS Selector, ("div.a-box-inner h1"),
+                XPATH selector, ("//div[@class='a-box-inner']//h1")
+Your name, CSS Selector, ("input#ap_customer_name")
+Email, CSS Selector, ("input#ap_email")
+Password, CSS Selector, ("input#ap_password")
+Password Requirement, XPATH, //div[@class='a-box a-alert-inline a-alert-inline-info auth-inlined-information-message a-spacing-top-mini']//*[contains(text(), 'Passwords must be at least 6 characters')]")
+Re-enter password, CSS Selector, ("#ap_password_check")
+Create account button, CSS Selector, ("input[type='submit']")
+Conditions of use, CSS Selector, ("a[href*='ap_register_notification_condition_of_use']")
+Privacy Notice, CSS Selector, ("a[href*='ap_register_notification_privacy_notice']")
+Sign in, CSS Selector, $$("a[href*='signin']")

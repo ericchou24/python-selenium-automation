@@ -1,6 +1,8 @@
 # Created by ericc at 2/13/2021
-Feature: # Enter feature name here
+Feature: Verify Amazon Best Sellers Links
   # Enter feature description here
 
-  Scenario: # Enter scenario name here
+  Scenario: Verify There are 5 links in Amazon Best Sellers
+  Given Open Amazon Best Sellers Page
+  Then Verify there are five links
     # Enter steps here

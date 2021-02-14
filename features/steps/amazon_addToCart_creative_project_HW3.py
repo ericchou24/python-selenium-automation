@@ -2,20 +2,26 @@ from selenium.webdriver.common.by import By
 from behave import given, when, then
 from selenium.webdriver.common.keys import Keys
 
+webpage = 'https://www.amazon.com/'
+search = (By.ID, 'twotabsearchtextbox')
+search_word = 'Legos'
+first_result = (By.XPATH, "//div[@data-cel-widget='search_result_2']")
+add_cart = (By.ID, 'add-to-cart-button')
+
 @given('Open Amazon Product search page')
 def open_amazon(context):
-    context.driver.get('https://www.amazon.com/')
+    context.driver.get(webpage)
 
 @when('Input Legos into search page and enter')
 def input_search(context):
-    search = context.driver.find_element(By.ID, 'twotabsearchtextbox')
-    search.send_keys('Legos', Keys.ENTER)
+    result = context.driver.find_element(*search)
+    result.send_keys(search_word, Keys.ENTER)
 
 @when('Add first result into cart')
 def click_first_result(context):
-    click_first_result = context.driver.find_element(By.XPATH, '//div[@data-index="2"]')
+    click_first_result = context.driver.find_element(By.XPATH, "//div[@data-cel-widget='search_result_2']")
     click_first_result.click()
-    add_first_to_cart = context.driver.find_element(By.ID, 'add-to-cart-button')
+    add_first_to_cart = context.driver.find_element(*add_cart)
     add_first_to_cart.click()
 
 @then('Verify item is in cart')

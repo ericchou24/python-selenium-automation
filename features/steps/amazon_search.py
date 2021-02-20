@@ -1,6 +1,10 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
+from selenium.webdriver.common.keys import Keys
 
+SEARCH_FIELD = (By.ID, 'twotabsearchtextbox')
+SEARCH_ICON = (By.ID, 'nav-search-submit-button')
+RESULT = (By.XPATH, "//span[@class='a-color-state a-text-bold")
 
 @given('Open Amazon page')
 def open_google(context):
@@ -14,14 +18,13 @@ def input_search(context):
 
 @when('Click on Amazon search icon')
 def input_search(context):
-    push_search = context.driver.find_element(By.ID, 'nav-search-submit-button')
+    push_search = context.driver.find_element(*SEARCH_FIELD)
     push_search.click()
-
 
 
 @then('Product results for Watches are shown on Amazon')
 def verify_found_results_text(context):
-    returned_text = context.driver.find_element(By.XPATH, "//span[@class='a-color-state a-text-bold']").text
+    returned_text = context.driver.find_element(*RESULT).text
     print("This is results: " + returned_text)
     expected_text = '"Watches"'
 

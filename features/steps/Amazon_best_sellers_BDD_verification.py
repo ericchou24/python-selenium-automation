@@ -11,8 +11,8 @@ best_seller_links = (By.XPATH, "//div[@id='zg_tabs']/ul/li")
 def open_amazon(context):
     context.driver.get(webpage)
 
-@then('Verify there are five links')
-def verify_in_cart(context):
-    search = context.driver.find_elements(*best_seller_links)
-    assert len(search) == 5, f'Expected 5 links, but got {len(search)}'
+@when('Verify there are five links')
+def verify_links(context):
+    context.search = context.driver.find_elements(*best_seller_links)
+    assert len(context.search) == 5, f'Expected 5 links, but got {len(context.search)}'
 

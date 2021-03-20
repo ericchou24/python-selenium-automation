@@ -4,22 +4,24 @@ from selenium.webdriver.common.keys import Keys
 
 SEARCH_FIELD = (By.ID, 'twotabsearchtextbox')
 SEARCH_ICON = (By.ID, 'nav-search-submit-button')
-RESULT = (By.XPATH, "//span[@class='a-color-state a-text-bold")
+RESULT = (By.XPATH, "//span[@class='a-color-state a-text-bold']")
 
 @given('Open Amazon page')
-def open_google(context):
-    context.driver.get('https://www.amazon.com/')
+def open_amazon(context):
+    context.app.main_page.open_main_page()
+    #context.driver.get('https://www.amazon.com/')
 
 @when('Input Watches into Amazon search field')
 def input_search(context):
-    search = context.driver.find_element(By.ID, 'twotabsearchtextbox')
-    search.send_keys('Watches')
-
+    ##search = context.driver.find_element(By.ID, 'twotabsearchtextbox')
+    ##search.send_keys('Watches')
+    context.app.main_page.input_amazon_search()
 
 @when('Click on Amazon search icon')
 def input_search(context):
-    push_search = context.driver.find_element(*SEARCH_FIELD)
-    push_search.click()
+    ##push_search = context.driver.find_element(*SEARCH_FIELD)
+    ##push_search.click()
+    context.app.main_page.click_search_amazon()
 
 
 @then('Product results for Watches are shown on Amazon')

@@ -4,15 +4,13 @@ from selenium.webdriver.common.keys import Keys
 
 @given('Opens Amazon Home Page')
 def open_chrome(context):
-    context.driver.get('https://www.amazon.com/')
+    context.app.amazon_orders_cart_check.open_main_page()
 
-@when('Cart is clicked on Navigation')
+@when('Click on cart icon')
 def open_shopping_cart(context):
-    search = context.driver.find_element(By.ID, 'nav-cart-count-container')
-    search.click()
 
-@then('Verify Cart is empty')
-def verify_empty_cart(context):
-    returned_text = context.driver.find_element(By.XPATH, "//div[@class='a-row sc-your-amazon-cart-is-empty']//h2").text
-    expected_text = 'Your Amazon Cart is empty'
-    assert returned_text == expected_text, f'Expected {expected_text}, but got {returned_text} instead'
+    context.app.amazon_orders_cart_check.click_cart()
+
+@then("Verify {query} text present")
+def verify_empty_cart(context, query):
+    context.app.amazon_orders_cart_check.verify_cart_results(query)

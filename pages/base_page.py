@@ -14,3 +14,7 @@ class Page:
     def open_url(self, url):
         self.driver.get(url)
 
+    def verify_text(self, expected_text, *locator):
+        actual_text = self.driver.find_element(*locator).text
+        assert expected_text == actual_text, f'Expected {expected_text}, but got {actual_text} instead'
+
